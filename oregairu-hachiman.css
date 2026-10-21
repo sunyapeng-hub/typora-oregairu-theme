@@ -52,8 +52,8 @@ body::after {
 body.megamenu-opened::after { display: none; }
 @media print { body::after { display: none; } }
 /* Opening page: a single explicitly sized overlay inside the editor. */
-/* Preserve Typora native viewport bounds and scroll container. */
-content { position: absolute; isolation: isolate; overflow-y: auto; }
+/* Preserve native scrolling; fixed context menus must share the sidebar's stacking context. */
+content { position: absolute; overflow-y: auto; }
 body:has(#write > p:only-child:empty)::after,
 body:has(#write > p:only-child > span:only-child:empty)::after { display: none; }
 content:has(#write > p:only-child:empty)::after,

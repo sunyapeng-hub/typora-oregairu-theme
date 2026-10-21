@@ -80,8 +80,8 @@ h3 { font-size: 1.18rem; }
 h4 { font-size: 1.1rem; }
 h5, h6 { font-size: 1rem; }
 h6 { color: var(--muted); }
-a { color: var(--primary-color); text-decoration: none; border-bottom: 1px solid #aac3d6; text-underline-offset: .2em; }
-a:hover { color: var(--pink); border-bottom-color: var(--pink); }
+#write a { color: var(--primary-color); text-decoration: none; border-bottom: 1px solid #aac3d6; text-underline-offset: .2em; }
+#write a:hover { color: var(--pink); border-bottom-color: var(--pink); }
 strong { color: var(--heading); font-weight: 600; }
 em { color: inherit; }
 del { color: var(--muted); }
@@ -90,9 +90,10 @@ blockquote { margin: 1.4em 0; padding: .15em 1.1em; border-left: 3px solid #afbd
 blockquote p:first-child { margin-top: .2em; }
 blockquote p:last-child { margin-bottom: .2em; }
 blockquote blockquote { border-left-color: #c797aa; }
-ul, ol { padding-left: 1.8em; }
-li { margin: .28em 0; }
-li::marker { color: var(--muted); }
+/* Document link/list decoration must not affect Typora's UI menus. */
+#write ul, #write ol { padding-left: 1.8em; }
+#write li { margin: .28em 0; }
+#write li::marker { color: var(--muted); }
 .md-task-list-item > input { accent-color: var(--primary-color); }
 hr { height: 1px; border: 0; background: var(--line); margin: 2em 0; }
 code, kbd, pre, .md-fences { font-family: var(--monospace); }
@@ -202,8 +203,8 @@ body::after {
 body.megamenu-opened::after { display: none; }
 @media print { body::after { display: none; } }
 /* Opening page: a single explicitly sized overlay inside the editor. */
-/* Preserve Typora native viewport bounds and scroll container. */
-content { position: absolute; isolation: isolate; overflow-y: auto; }
+/* Preserve native scrolling; fixed context menus must share the sidebar's stacking context. */
+content { position: absolute; overflow-y: auto; }
 body:has(#write > p:only-child:empty)::after,
 body:has(#write > p:only-child > span:only-child:empty)::after { display: none; }
 content:has(#write > p:only-child:empty)::after,
