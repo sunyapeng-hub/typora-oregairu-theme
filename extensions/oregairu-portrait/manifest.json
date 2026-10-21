@@ -1,0 +1,14 @@
+{
+  "version": "0.0.3",
+  "id": "local.oregairu-portrait",
+  "platforms": [
+    "win32",
+    "linux",
+    "darwin"
+  ],
+  "name": "Oregairu 动态立绘",
+  "minCoreVersion": "2.0.0",
+  "description": "Right-corner portrait with soft text-overlap masking for current Oregairu themes.",
+  "minAppVersion": "1.5.0",
+  "author": "Local"
+}

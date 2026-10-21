@@ -1,0 +1,17 @@
+# Local recovery copies and plugin settings
+**/restore/
+backups/
+**/.typora/
+*.log
+.DS_Store
+Thumbs.db
+
+# Design experiments are not release sources
+/previews/
+/proposals/
+
+# Personal state and credentials
+.env
+.env.*
+*.pem
+*.key
